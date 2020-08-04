@@ -13,7 +13,8 @@ import requests
 
 url = "https://www.qu.la/"
 r = requests.get(url)
-r = r.text.encode('ISO-8859-1').decode()
+# r = r.text.encode('ISO-8859-1').decode()
+r=r.content
 # print(r)
 soup = BeautifulSoup(r,'lxml')
 title = soup.select('body > div.container > div > div > div > div > dl > dt > a')
