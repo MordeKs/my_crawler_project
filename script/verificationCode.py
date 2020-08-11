@@ -27,7 +27,7 @@ class VerificationCode:
     def get_pictures(self):
         self.driver.get(self.url)  # 打开登陆页面
         self.driver.save_screenshot('../imgs/pictures.png')  # 全屏截图
-        page_snap_obj = Image.open('./imgs/pictures.png')
+        page_snap_obj = Image.open('../imgs/pictures.png')
         img = self.find_element('#imgVerify')  # 验证码元素位置
         time.sleep(1)
         location = img.location
@@ -41,7 +41,8 @@ class VerificationCode:
         self.driver.close()  # 处理完验证码后关闭浏览器
         return image_obj
 
-    def get_img(self):
+    @staticmethod
+    def get_img():
         page_snap_obj = Image.open('../imgs/1.jpg')
         image_obj = page_snap_obj.crop()
         # image_obj.show()
@@ -61,7 +62,7 @@ class VerificationCode:
                     pixdata[x, y] = 0
                 else:
                     pixdata[x, y] = 255
-        # img.show()
+        # imgs.show()
         return img
 
     def delete_spot(self):
