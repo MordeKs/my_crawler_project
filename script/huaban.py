@@ -18,7 +18,7 @@ from selenium import webdriver
 from baiduFaceIdentify import BaiduFaceIdentify
 
 
-class HuabanDownloader():
+class HuabanDownloader:
     # 构造函数，实例化bfi、browser、pic_download_count
     def __init__(self):
         # 百度人脸检测实例
@@ -47,7 +47,7 @@ class HuabanDownloader():
             self.browser.execute_script('window.stop()')
         time.sleep(1)
         # 找到登录按钮并点击，唤出登录对话框
-        self.browser.find_element_by_xpath('//a[@class="login bounce btn wbtn"]').click()
+        self.browser.find_element_by_xpath('//a[@class="login bounce btn rbtn"]').click()
         # 找到用户名输入框，填写用户名
         self.browser.find_element_by_name('email').send_keys('18396213818')
         # 找到密码输入框，填写密码
@@ -116,7 +116,7 @@ class HuabanDownloader():
         # 遍历当前view_page抽取到的图片src
         for img_url in img_urls:
             # 排除gif及确保图片不是网站相对图径
-            if 'gif' not in img_url and 'aicdn.com' in img_url:
+            if 'gif' not in img_url and 'huabanimg.com' in img_url:
                 logging.warning('\r\nimg_url格式匹配，即将调用百度识别：http:' + img_url)
                 img_url_tmp = 'http:' + img_url[:img_url.find('_')]
                 try:

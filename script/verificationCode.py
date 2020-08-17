@@ -17,19 +17,19 @@ import time  # 代码运行停顿
 
 class VerificationCode:
     def __init__(self):
-        # self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox()
         # self.find_element = self.driver.find_element_by_css_selector
-        self.driver = webdriver.Chrome()
+        # self.driver = webdriver.Chrome()
         # self.ch_driver.get('https://blog.csdn.net/qq_37245397')
         self.find_element = self.driver.find_element_by_css_selector
         self.url = 'http://www.fjqzjr.com/web/mm_login.html'
 
     def get_pictures(self):
         self.driver.get(self.url)  # 打开登陆页面
+        time.sleep(5)
         self.driver.save_screenshot('../imgs/pictures.png')  # 全屏截图
         page_snap_obj = Image.open('../imgs/pictures.png')
         img = self.find_element('#imgVerify')  # 验证码元素位置
-        time.sleep(1)
         location = img.location
         size = img.size  # 获取验证码的大小参数
         left = location['x']
