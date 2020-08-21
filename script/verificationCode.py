@@ -37,6 +37,8 @@ class VerificationCode:
         right = left + size['width']
         bottom = top + size['height']
         image_obj = page_snap_obj.crop((left, top, right, bottom))  # 按照验证码的长宽，切割验证码
+        # image = Image.open(image_obj)
+        # image.save("../imgs/code.png")
         # image_obj.show()  # 打开切割后的完整验证码
         self.driver.close()  # 处理完验证码后关闭浏览器
         return image_obj
