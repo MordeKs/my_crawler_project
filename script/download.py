@@ -10,7 +10,7 @@ import hashlib
 import pandas as pd
 import requests
 from apscheduler.schedulers.blocking import BlockingScheduler
-from sqlalchemy import create_engine
+from sqlalchemy_test import create_engine
 
 from config.config import mysqlcfg, retry, proxy
 # from log import logger
